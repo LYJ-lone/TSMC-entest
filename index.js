@@ -113,22 +113,22 @@ function btnenOk_Click(){
         enanswer_D = Math.round(Math.random()*(en.length));  
     }
     an[0] = cn[enanswer_A];
-    console.log(enanswer_A);
+    // console.log(enanswer_A);
     an[1] = cn[enanswer_B];
-    console.log(enanswer_B); 
+    // console.log(enanswer_B); 
     an[2] = cn[enanswer_C];
     console.log(enanswer_C);
-    an[3] = cn[enanswer_D];
+    // an[3] = cn[enanswer_D];
     console.log(enanswer_D);
     an[enanswer_E] = cn[enanswer];
-    console.log(an);
+    // console.log(an);
 
     document.getElementById("qA").innerHTML = an[0];
     document.getElementById("qB").innerHTML = an[1];
     document.getElementById("qC").innerHTML = an[2];
     document.getElementById("qD").innerHTML = an[3];
 
-    return enanswer_E;   
+    return enanswer_E,enanswer;   
 }
 
 //英翻中答案
@@ -136,10 +136,10 @@ function btnenanswer_Click(){
     var a = document.querySelector('[name=answer]:checked');
     console.log(a.value);
     if (a.value  == enanswer_E | a.value == enanswer_E | a.value == enanswer_E | a.value == enanswer_E){
-        document.getElementById('correct').innerHTML = "答案正確";
+        document.getElementById('correct').innerHTML = "答案正確" ;
     }
     else{
-        document.getElementById('correct').innerHTML = "答案錯誤";
+        document.getElementById('correct').innerHTML = "答案錯誤，正確答案為："+ '\n' + cn[enanswer];
     }
 }
 
@@ -200,7 +200,7 @@ function btncnOk_Click(){
     document.getElementById("qB").innerHTML = an[1];
     document.getElementById("qC").innerHTML = an[2];
     document.getElementById("qD").innerHTML = an[3];
-    return answer_E;   
+    return answer_E,answer;   
 }
 
 //中翻英答案
@@ -211,7 +211,7 @@ function btncnanswer_Click(){
         document.getElementById('correct').innerHTML = "答案正確";
     }
     else{
-        document.getElementById('correct').innerHTML = "答案錯誤";
+        document.getElementById('correct').innerHTML = "答案錯誤，正確答案為：" + '\n' + en[answer];
     }
 }
 
