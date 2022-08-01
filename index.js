@@ -31,7 +31,7 @@ var en = [
 ]
 
 var cn=[
-    "對準","附上","稽核","可使用的"," 區域","中止","缺席","能力","主動的","調整","潔淨走道",
+    "對準","附上","稽核","可使用的","區域","中止","缺席","能力","主動的","調整","潔淨走道",
     "異常的","真實的","增加","警報","自動的","平均","酸","每年的","標竿學習","支援","光束",
     "瓶子","銀行、暫存","基礎的","底部","破掉的","晶舟","繼續","卡片","手推車","挑選","機密",
     "污染","週期","取消","中心","技能確認","更換","圖表","檢查","化學","清潔","清除","顏色",
@@ -58,57 +58,60 @@ var cn=[
     "晶圓","警告","濕的","視窗","良率","零"
 ]
 
-var an=[]
 // console.log(en.length)
 // console.log(cn.length);
 
 
+var enanswer = "";
 var answer = "";
 
 //選擇題
 function btnenOk_Click(){
-    var question = Math.round(Math.random()*(en.length));
-    answer = question;
-    var answer_A = Math.round(Math.random()*(en.length));
-    var answer_B = Math.round(Math.random()*(en.length));
-    var answer_C = Math.round(Math.random()*(en.length));
-    var answer_D = Math.round(Math.random()*(en.length));
+    var an=[]
+    var enquestion = Math.round(Math.random()*(en.length));
+    enanswer = enquestion;
+    var enanswer_A = Math.round(Math.random()*(en.length));
+    var enanswer_B = Math.round(Math.random()*(en.length));
+    var enanswer_C = Math.round(Math.random()*(en.length));
+    var enanswer_D = Math.round(Math.random()*(en.length));
     // 答案位置
-    var E = Math.round(Math.random()*4)+1;
+    var enanswer_E = Math.round(Math.random()*4);
 
-    document.getElementById('question').innerHTML = en[question];
+    document.getElementById('question').innerHTML = en[enquestion];
+    document.getElementById('correct').innerHTML = "";
 
-    while (answer_A == question){
-        answer_A = Math.round(Math.random()*(en.length));     
+    while (enanswer_A == enquestion){
+        enanswer_A = Math.round(Math.random()*(en.length));     
     }
-    while (answer_B == question | answer_B == answer_A |answer_B == answer_C){
-        answer_B = Math.round(Math.random()*(en.length));    
+    while (enanswer_B == enquestion | enanswer_B == enanswer_A ){
+        enanswer_B = Math.round(Math.random()*(en.length));    
     }
-    while (answer_C == question | answer_C == answer_A | answer_C == answer_B){
-        answer_C = Math.round(Math.random()*(en.length));     
+    while (enanswer_C == enquestion | enanswer_C == enanswer_A | enanswer_C == enanswer_B){
+        enanswer_C = Math.round(Math.random()*(en.length));     
     }
-    while (answer_D == question | answer_D == answer_A | answer_D == answer_B | answer_D == answer_C){
-        answer_D = Math.round(Math.random()*(en.length));  
+    while (enanswer_D == enquestion | enanswer_D == enanswer_A | enanswer_D == enanswer_B | enanswer_D == enanswer_C){
+        enanswer_D = Math.round(Math.random()*(en.length));  
     }
-    an[0] = cn[answer_A];
-    an[1] = cn[answer_B];
-    an[2] = cn[answer_C];
-    an[3] = cn[answer_D];
-    an[E] = cn[answer];
-    // console.log(an);
+    an[0] = cn[enanswer_A];
+    an[1] = cn[enanswer_B];
+    an[2] = cn[enanswer_C];
+    an[3] = cn[enanswer_D];
+    an[enanswer_E] = cn[enanswer];
+    console.log(an);
 
     document.getElementById('answer').innerHTML = an[0] + '\n' + an[1] + '\n' + an[2] + '\n'+ an[3] + '\n'  ;
-    return answer;   
+    return enanswer;   
 }
 
 
 //答案
 function btnenanswer_Click(){
-    document.getElementById('correct').innerHTML = cn[answer];
+    document.getElementById('correct').innerHTML = cn[enanswer];
 }
 
 
 function btncnOk_Click(){
+    var an=[]
     var question = Math.round(Math.random()*(en.length));
     answer = question;
     var answer_A = Math.round(Math.random()*(en.length));
@@ -116,9 +119,10 @@ function btncnOk_Click(){
     var answer_C = Math.round(Math.random()*(en.length));
     var answer_D = Math.round(Math.random()*(en.length));
     // 答案位置
-    var E = Math.round(Math.random()*4)+1;
+    var E = Math.round(Math.random()*4);
 
     document.getElementById('question').innerHTML = cn[question];
+    document.getElementById('correct').innerHTML = "";
 
     while (answer_A == question){
         answer_A = Math.round(Math.random()*(cn.length));     
