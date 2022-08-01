@@ -87,12 +87,12 @@ function btnenOk_Click(){
     document.getElementById('enanswer').disabled = false;
 
     //設定亂數
-    var enquestion = Math.round(Math.random()*(en.length));
+    var enquestion = Math.round(Math.random()*(en.length-1));
     enanswer = enquestion;
-    var enanswer_A = Math.round(Math.random()*(en.length));
-    var enanswer_B = Math.round(Math.random()*(en.length));
-    var enanswer_C = Math.round(Math.random()*(en.length));
-    var enanswer_D = Math.round(Math.random()*(en.length));
+    var enanswer_A = Math.round(Math.random()*(en.length-1));
+    var enanswer_B = Math.round(Math.random()*(en.length-1));
+    var enanswer_C = Math.round(Math.random()*(en.length-1));
+    var enanswer_D = Math.round(Math.random()*(en.length-1));
     // 答案位置
     enanswer_E = Math.round(Math.random()*3);
     console.log(enanswer_E);
@@ -101,23 +101,27 @@ function btnenOk_Click(){
     document.getElementById('question').innerHTML = en[enquestion];
     
     while (enanswer_A == enquestion){
-        enanswer_A = Math.round(Math.random()*(en.length));     
+        enanswer_A = Math.round(Math.random()*(en.length));        
     }
     while (enanswer_B == enquestion | enanswer_B == enanswer_A ){
-        enanswer_B = Math.round(Math.random()*(en.length));    
+        enanswer_B = Math.round(Math.random()*(en.length));   
     }
     while (enanswer_C == enquestion | enanswer_C == enanswer_A | enanswer_C == enanswer_B){
-        enanswer_C = Math.round(Math.random()*(en.length));     
+        enanswer_C = Math.round(Math.random()*(en.length));  
     }
     while (enanswer_D == enquestion | enanswer_D == enanswer_A | enanswer_D == enanswer_B | enanswer_D == enanswer_C){
         enanswer_D = Math.round(Math.random()*(en.length));  
     }
     an[0] = cn[enanswer_A];
+    console.log(enanswer_A);
     an[1] = cn[enanswer_B];
+    console.log(enanswer_B); 
     an[2] = cn[enanswer_C];
+    console.log(enanswer_C);
     an[3] = cn[enanswer_D];
+    console.log(enanswer_D);
     an[enanswer_E] = cn[enanswer];
-    // console.log(an);
+    console.log(an);
 
     document.getElementById("qA").innerHTML = an[0];
     document.getElementById("qB").innerHTML = an[1];
@@ -161,12 +165,12 @@ function btncnOk_Click(){
     document.getElementById('enanswer').disabled = true;
 
     //設定亂數
-    var question = Math.round(Math.random()*(en.length));
+    var question = Math.round(Math.random()*(en.length-1));
     answer = question;
-    var answer_A = Math.round(Math.random()*(en.length));
-    var answer_B = Math.round(Math.random()*(en.length));
-    var answer_C = Math.round(Math.random()*(en.length));
-    var answer_D = Math.round(Math.random()*(en.length));
+    var answer_A = Math.round(Math.random()*(en.length-1));
+    var answer_B = Math.round(Math.random()*(en.length-1));
+    var answer_C = Math.round(Math.random()*(en.length-1));
+    var answer_D = Math.round(Math.random()*(en.length-1));
     // 答案位置
     answer_E = Math.round(Math.random()*3);
 
