@@ -113,15 +113,15 @@ function btnenOk_Click(){
         enanswer_D = Math.round(Math.random()*(en.length));  
     }
     an[0] = cn[enanswer_A];
-    // console.log(enanswer_A);
+    console.log(enanswer_A);
     an[1] = cn[enanswer_B];
-    // console.log(enanswer_B); 
+    console.log(enanswer_B); 
     an[2] = cn[enanswer_C];
     console.log(enanswer_C);
-    // an[3] = cn[enanswer_D];
+    an[3] = cn[enanswer_D];
     console.log(enanswer_D);
     an[enanswer_E] = cn[enanswer];
-    // console.log(an);
+    console.log(an);
 
     document.getElementById("qA").innerHTML = an[0];
     document.getElementById("qB").innerHTML = an[1];
