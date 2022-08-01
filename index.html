@@ -7,21 +7,71 @@
     <title>TSMC-技術員英文題庫練習</title>
     <script src="index.js"></script>
 </head>
+<style>
+    body{
+        color: #fff;
+    }
+    .centerbox{
+        width: 400px;
+        height: 500px;
+        background-color: rgba(46, 38, 65, 0.938);
+        padding: 10px;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.5);
+        transform: translateY( calc(50% - 60px));
+    }
+    @media screen and (max-width: 480px) {
+        .centerbox{
+            width: 100%;
+            transform: translateY(0);
+        }
+        
+    }
+    input{
+        width: 49%;
+        padding: 10px 5px;
+        cursor: pointer;
+        background-color: rgb(124, 33, 185);
+        color: #fff;
+        border-radius: 5px;
+        transition: all 0.5s;
+        outline: none;
+        border: none;
+    }
+    input:hover{
+        background-color: rgb(182, 89, 236);
+        color: #fff;
+    }
+</style>
 <body>
-    <input id="enstart" type="button" value="英翻中" onclick="btnenOk_Click()">
-    <input id="cnstart" type="button" value="中翻英" onclick="btncnOk_Click()">
-    <br>
-    <label>題目： 
-        <label id="question" ></label><br>
-        <textarea id="answer" style="height:250px;width:100% ;"></textarea>
-    </label><br>
+    <div class="centerbox">
+        <input id="enstart" type="button" value="英翻中" onclick="btnenOk_Click()">
+        <input id="cnstart" type="button" value="中翻英" onclick="btncnOk_Click()">
+        <br>
+        <label><br>題目： 
+            <label id="question" ></label>
+            <br>
+            <input id="question_A" type="radio" name="answer" value="0">
+            <label for="question_A" id="qA"></label>
+            <br>
+            <input id="question_B" type="radio" name="answer" value="1">
+            <label for="question_B" id="qB"></label>
+            <br>
+            <input id="question_C" type="radio" name="answer" value="2">
+            <label for="question_C" id="qC"></label>
+            <br>
+            <input id="question_D" type="radio" name="answer" value="3">
+            <label for="question_D" id="qD"></label>
+            <br>
+        </label><br>
 
-    <input id="enanswer" type="button" value="英翻中答案" onclick="btnenanswer_Click()">
-    <input id="cnanswer" type="button" value="中翻英答案" onclick="btncnanswer_Click()">
-    <br>
-    <label>正確答案
-        <label id="correct"></label>
-    </label>
-    
+        <input id="enanswer" type="button" value="英翻中答案" onclick="btnenanswer_Click()">
+        <input id="cnanswer" type="button" value="中翻英答案" onclick="btncnanswer_Click()">
+        <br><br>
+        <label>答案 :
+            <label id="correct"></label>
+        </label>
+    </div>
 </body>
 </html>
