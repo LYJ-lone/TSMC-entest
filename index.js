@@ -68,11 +68,25 @@ var answer_E ="";
 
 ///英翻中選擇題
 function btnenOk_Click(){
+    //歸0
     var an=[];
     enanswer = "";
     answer = "";
     answer_E ="";
     enanswer_E ="";
+
+    //清空選單
+     if (document.querySelector('[name=answer]:checked')){
+        document.querySelector('[name=answer]:checked').checked=false;
+    }
+    //答案清空
+    document.getElementById('correct').innerHTML = "";
+
+    //關閉按鈕
+    document.getElementById('cnanswer').disabled = true;
+    document.getElementById('enanswer').disabled = false;
+
+    //設定亂數
     var enquestion = Math.round(Math.random()*(en.length));
     enanswer = enquestion;
     var enanswer_A = Math.round(Math.random()*(en.length));
@@ -80,17 +94,12 @@ function btnenOk_Click(){
     var enanswer_C = Math.round(Math.random()*(en.length));
     var enanswer_D = Math.round(Math.random()*(en.length));
     // 答案位置
-    enanswer_E = Math.round(Math.random()*4);
+    enanswer_E = Math.round(Math.random()*3);
+    console.log(enanswer_E);
 
-    document.getElementById('cnanswer').disabled = true;
-    document.getElementById('enanswer').disabled = false;
-    if (document.querySelector('[name=answer]:checked')){
-        document.querySelector('[name=answer]:checked').checked=false;
-    }
-    
+    //題目
     document.getElementById('question').innerHTML = en[enquestion];
-    document.getElementById('correct').innerHTML = "";
-
+    
     while (enanswer_A == enquestion){
         enanswer_A = Math.round(Math.random()*(en.length));     
     }
@@ -108,7 +117,7 @@ function btnenOk_Click(){
     an[2] = cn[enanswer_C];
     an[3] = cn[enanswer_D];
     an[enanswer_E] = cn[enanswer];
-    console.log(an);
+    // console.log(an);
 
     document.getElementById("qA").innerHTML = an[0];
     document.getElementById("qB").innerHTML = an[1];
@@ -132,11 +141,26 @@ function btnenanswer_Click(){
 
 //中翻英
 function btncnOk_Click(){
+    // 歸0
     var an=[];
     enanswer = "";
     answer = "";
     answer_E ="";
     enanswer_E ="";
+
+    //清空答案
+    document.getElementById('correct').innerHTML = "";
+
+    //清空選單
+    if (document.querySelector('[name=answer]:checked')){
+        document.querySelector('[name=answer]:checked').checked=false;
+    }
+
+    //關閉按鈕
+    document.getElementById('cnanswer').disabled = false;
+    document.getElementById('enanswer').disabled = true;
+
+    //設定亂數
     var question = Math.round(Math.random()*(en.length));
     answer = question;
     var answer_A = Math.round(Math.random()*(en.length));
@@ -144,16 +168,10 @@ function btncnOk_Click(){
     var answer_C = Math.round(Math.random()*(en.length));
     var answer_D = Math.round(Math.random()*(en.length));
     // 答案位置
-    answer_E = Math.round(Math.random()*4);
-
-    document.getElementById('cnanswer').disabled = false;
-    document.getElementById('enanswer').disabled = true;
-    if (document.querySelector('[name=answer]:checked')){
-        document.querySelector('[name=answer]:checked').checked=false;
-    }
+    answer_E = Math.round(Math.random()*3);
 
     document.getElementById('question').innerHTML = cn[question];
-    document.getElementById('correct').innerHTML = "";
+    
 
     while (answer_A == question){
         answer_A = Math.round(Math.random()*(cn.length));     
